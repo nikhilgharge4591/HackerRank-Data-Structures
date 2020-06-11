@@ -12,3 +12,12 @@ def deleteNode(head, position):
         index +=1
     current.next = current.next.next
     return head
+    
+    
+    Reverse a llist
+    
+    def reversePrint(head):
+    if head == None:
+        return
+    reversePrint(head.next)
+    print(head.data)
