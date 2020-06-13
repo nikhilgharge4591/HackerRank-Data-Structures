@@ -39,3 +39,19 @@ def reverse(head):
         current = new_node   
      
     return prev
+
+Compare Two linklist
+
+def compare_lists(llist1, llist2):
+    if llist1 is None and llist2 is None:
+        return 1
+    first_1 = llist1
+    second_2 = llist2
+    while first_1 is not None and second_2 is not None:
+        if first_1.data != second_2.data:
+            break
+        if first_1.next is None and second_2.next is None:
+            return 1
+        first_1 = first_1.next
+        second_2 = second_2.next
+    return 0
