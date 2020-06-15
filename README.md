@@ -1,5 +1,4 @@
 # HackerRank-Data-Structures
-Arrays Solutions
-
+Data Structure Solutions of HackerRank
 
 
