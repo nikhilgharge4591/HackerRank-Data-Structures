@@ -76,3 +76,19 @@ def compare_lists(llist1, llist2):
     if p1 is None:
         prev.next = p2
     return headOne if headOne.data < headTwo.data else headTwo
+    
+    
+   Get Node value
+   
+  def getNode(head, position):
+  trailingNode = head
+  len = 0
+
+  while (head):
+    if (len > position):
+      trailingNode = trailingNode.next
+
+    len += 1
+    head = head.next
+
+  return trailingNode.data
