@@ -105,3 +105,17 @@ def compare_lists(llist1, llist2):
           else:
             head = head.next
     return new_head
+
+Cycle detection
+
+def has_cycle(head):
+    if head is None: return False
+    First = head
+    Second = head.next
+    while Second is not None and Second.next is not None:
+        if First == Second:
+            return True
+        First = First.next
+        Second = Second.next.next
+
+    return False
