@@ -119,3 +119,19 @@ def has_cycle(head):
         Second = Second.next.next
 
     return False
+
+Merge Data Points
+
+def findMergeNode(head1, head2):
+    current_list1 = head1
+    current_list2 = head2
+    while current_list1 != current_list2:
+        if current_list1 is None:
+            current_list1 = head2
+        else:
+            current_list1 = current_list1.next
+        if current_list2 is None:
+            current_list2 = head1
+        else:
+            current_list2 = current_list2.next
+    return current_list1.data
