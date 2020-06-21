@@ -1,0 +1,14 @@
+Caesar Cipher
+
+
+def caesarCipher(s, k):
+    newsLetter = []
+    newKey = k % 26
+    for letter in s:
+        newsLetter.append(getNewLetter(letter, newKey))
+    return "".join(newsLetter)
+
+
+def getNewLetter(letter, key):
+    nlc = ord(letter) + key
+    return chr(nlc) if nlc <= 122 else chr(96 + nlc % 122)
