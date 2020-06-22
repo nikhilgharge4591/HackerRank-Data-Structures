@@ -12,3 +12,13 @@ def caesarCipher(s, k):
 def getNewLetter(letter, key):
     nlc = ord(letter) + key
     return chr(nlc) if nlc <= 122 else chr(96 + nlc % 122)
+    
+    Pallindrome check for a string
+    
+    def isPalindrome(string):
+    # Write your code here.
+	list_str = list(string)
+    reversed_str = []
+	for i in reversed(range(len(string))):
+		reversed_str.append(string[i])
+	return list_str == reversed_str
