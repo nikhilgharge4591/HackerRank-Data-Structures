@@ -22,3 +22,16 @@ def getNewLetter(letter, key):
 	for i in reversed(range(len(string))):
 		reversed_str.append(string[i])
 	return list_str == reversed_str
+	
+Group Anagrams
+
+def groupAnagrams(words):
+    # Write your code here.
+    anagrams = {}
+	for word in words:
+		sortedWord = "".join(sorted(word))
+		if sortedWord in anagrams:
+			anagrams[sortedWord].append(word)
+		else:
+			anagrams[sortedWord] = [word]
+	return list(anagrams.values())
