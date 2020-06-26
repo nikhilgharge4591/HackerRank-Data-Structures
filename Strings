@@ -35,3 +35,19 @@ def groupAnagrams(words):
 		else:
 			anagrams[sortedWord] = [word]
 	return list(anagrams.values())
+	
+	
+longestSubstringWithoutDuplication
+
+def longestSubstringWithoutDuplication(string):
+    # Write your code here.
+    lastSeen = {}
+	longestString = [0,1]
+	startIndex = 0
+	for i,char in enumerate(string):
+		if char in lastSeen:
+			startIndex = max(startIndex, lastSeen[char]+1)
+		if longestString[1] - longestString[0] < i+2 - startIndex:
+			longestString = [startIndex, i+1]
+		lastSeen[char] = i
+	return string[longestString[0]:longestString[1]]
