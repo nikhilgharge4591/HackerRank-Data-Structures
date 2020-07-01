@@ -1,0 +1,12 @@
+
+def preOrder(root):
+    #Write your code here
+    if root: 
+        # First print the data of node 
+        print(root.info, end =" ")
+
+        # Then recur on left child 
+        preOrder(root.left) 
+  
+        # Finally recur on right child 
+        preOrder(root.right)
