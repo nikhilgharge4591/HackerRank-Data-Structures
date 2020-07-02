@@ -20,3 +20,13 @@ def postOrder(root):
    postOrder(root.left)
    postOrder(root.right)
    print(root.info,end=" ")
+   
+   
+ 
+def inOrder(root):
+    #Write your code here
+    if root == None:
+        return 
+    inOrder(root.left)
+    print(root.info, end = " ")
+    inOrder(root.right)
