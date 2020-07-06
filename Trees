@@ -65,3 +65,22 @@ def levelOrder(root):
             self.root = Node(val)
         else:
             self.insertion(self.root, val)
+            
+    
+def topView(root):
+    #Write your code here
+    m = {}
+    fillMap(root, 0, 0, m) 
+    for it in sorted (m.keys()): 
+        print(m[it][0], end = " ")
+
+def fillMap(root, d, l, m):
+    if root is None:
+        return
+
+    if d not in m: 
+        m[d] = [root.info,l] 
+    elif(m[d][1] > l): 
+        m[d] = [root.info,l] 
+    fillMap(root.left, d - 1, l + 1, m) 
+    fillMap(root.right, d + 1, l + 1, m)
