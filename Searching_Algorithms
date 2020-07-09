@@ -1,0 +1,18 @@
+Binary Search
+
+
+def binarySearch(array, target):
+    # Write your code here.
+    left = 0
+	right = len(array) - 1
+	while (left <= right):
+		mid = (left+right) // 2
+		guess = array[mid]
+		if guess == target:
+			return mid
+		elif guess < target:
+			left = mid +  1
+		elif guess > target:
+			right = mid - 1
+	return -1
+		
