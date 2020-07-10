@@ -105,3 +105,84 @@ def validateBstHelper(tree, minValue, maxValue):
 		return False
 	leftIsValid = validateBstHelper(tree.left, minValue, tree.value)
 	return leftIsValid and validateBstHelper(tree.right, tree.value, maxValue)
+	
+	
+BST Construction
+
+
+class BST:
+    def __init__(self, value):
+        self.value = value
+        self.left = None
+        self.right = None
+
+    def insert(self, value):
+        # Write your code here.
+        # Do not edit the return statement of this method.
+		if self.value > value:
+			if self.left is None:
+				self.left = BST(value)
+			else:
+				self.left.insert(value)
+		else:
+			if self.right is None:
+				self.right = BST(value)
+			else:
+				self.right.insert(value)
+				
+        return self
+
+    def contains(self, value):
+        # Write your code here.
+        if self.value > value:
+			if self.left.value is None:
+				return False
+			else:
+				self.left.value.contains(value)
+		elif self.value < value:
+			if self.right.value is None:
+				return False
+			else:
+				self.right.value.contains(value)
+		else:
+			return True
+				
+
+    def remove(self, value, parent = None):
+        # Write your code here.
+        # Do not edit the return statement of this method.
+		if value < self.value:
+			if self.left.value is not None:
+				self.left.remove(self,value)
+		elif value > self.value:
+			if self.right.value is not None:
+				self.right.remove(self, value)
+		else:
+			# Edge cases
+			if self.left is not None and self.right is not None:
+				self.value = self.right.getMinValue()
+				self.right.remove(self.value, self)
+			elif parent is None:
+				if self.left is not None:
+					self.value = self.left.value
+					self.right = self.left.right
+					self.left = self.left.left
+				elif self.right is not None:
+					self.value = self.right.value
+					self.left = self.right.left
+					self.right = self.right.right
+				else:
+					# This is a single-node tree: do nothing.
+					pass
+			elif parent.left == self:
+				parent.left = self.left if self.left is not None else self.right
+			elif parent.right == self:
+				parent.right = self.left if self.left is not None else self.right
+        return self
+
+
+    def getMinValue(self):
+	    if self.left is None:
+		    return self.value
+	    else:
+		    return self.left.getMinValue()
