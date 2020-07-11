@@ -1,4 +1,4 @@
 # HackerRank-Data-Structures
-Data Structure Solutions of HackerRank
+Data Structure and Algorithms Solutions of HackerRank
 
 
