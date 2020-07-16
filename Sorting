@@ -27,3 +27,13 @@ def insertionSort(array):
 	return array	
 def swap(i,j,array):
 	array[i], array[j] = array[j], array[i]
+
+def quickSort(array):
+    # Write your code here.
+    if len(array) < 2:
+		return array
+	else:
+		pivot = array[0]
+		less = [i for i in array[1:] if i <= pivot]
+		greater = [i for i in array[1:] if i > pivot]
+	    return quickSort(less) + [pivot] + quickSort(greater)
