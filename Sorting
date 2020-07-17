@@ -37,3 +37,19 @@ def quickSort(array):
 		less = [i for i in array[1:] if i <= pivot]
 		greater = [i for i in array[1:] if i > pivot]
 	    return quickSort(less) + [pivot] + quickSort(greater)
+	    
+	    
+def selectionSort(array):
+    # Write your code here.
+    currIndx = 0
+	while currIndx < len(array) - 1:
+		smallestIndx = currIndx
+		for i in range(currIndx+1, len(array)):
+			if array[smallestIndx] > array[i]:
+				smallestIndx = i
+		swap(currIndx, smallestIndx, array)
+		currIndx += 1
+	return array
+
+def swap(i, j, array):
+	array[i], array[j] = array[j], array[i]
