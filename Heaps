@@ -1,0 +1,55 @@
+HEAPS:
+
+MinHeap
+
+class MinHeap:
+    def __init__(self, array):
+        # Do not edit the line below.
+        self.heap = self.buildHeap(array)
+
+    def buildHeap(self, array):
+        # Write your code here.
+        firstParentIndx = (len(array) - 2) // 2
+		for currentIndx in reversed(range(firstParentIndx+1)):
+			self.siftDown(currentIndx, len(array) - 1, array)
+		return array
+
+    def siftDown(self, currentIndx, endIndx, heap):
+        # Write your code here.
+        childOneIndx = currentIndx * 2 + 1
+		while childOneIndx <= endIndx:
+			childTwoIndx = currentIndx * 2 + 2 if currentIndx * 2 + 2 <= endIndx else -1
+			if childTwoIndx != -1 and heap[childTwoIndx] < heap[childOneIndx]:
+				idxToSwap = childTwoIndx
+			else:
+				idxToSwap = childOneIndx
+			if heap[idxToSwap] < heap[currentIndx]:
+				self.swap(currentIndx, idxToSwap, heap)
+				currentIndx = idxToSwap
+				childOneIndx = currentIndx * 2 + 1
+			else:
+				break
+			
+
+    def siftUp(self, currentIndx, heap):
+        # Write your code here.
+        parentIndx = (currentIndx - 1) // 2
+		while currentIndx > 0 and heap[currentIndx] < heap[parentIndx]:
+			self.swap(currentIndx,parentIndx, heap)
+			currentIndx = parentIndx
+			parentIndx = (currentIndx - 1) // 2
+
+    def peek(self):
+        # Write your code here.
+        return self.heap[0]
+
+    def remove(self):
+        # Write your code here.
+        self.swap(0, len(self.heap)-1, self.heap)
+		valueToRemove = self.heap.pop()
+		self.siftDown(0, len(self.heap)-1, self.heap)
+		return valueToRemove
+
+    def insert(self, value):
+        # Write your code here.
+        self.heap.append(value)
